@@ -492,6 +492,7 @@ const comment = (() => {
     const likes = storage('likes');
 
     let dataset = [];
+    dataset = localStorage.getItem('resdata') ? JSON.parse(localStorage.getItem('resdata')) : [];
 
     let tempID = null;
 
@@ -708,7 +709,7 @@ const comment = (() => {
         <div class="card-body bg-light shadow p-3 m-0 rounded-4" data-parent="true">
             <div class="d-flex flex-wrap justify-content-between align-items-center">
                 <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-                    <strong class="me-1">${util.escapeHtml(data.nama)}</strong><i class="fa-solid ${data.hadir ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>
+                    <strong class="me-1">${util.escapeHtml(data.nama)}</strong><i class="fa-solid ${data.hadir == 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>
                 </p>
                 <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">few sec ago..</small>
             </div>
