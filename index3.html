@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  
+  * {
+
+  }
+  
+  body {
+
+  }
+  
+  .container {
+    color: #000;
+    margin: 5rem auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-weight: normal;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+  }
+  
+  li {
+    display: inline-block;
+    font-size: 5vw;
+    list-style: none;
+    padding: 1vw;
+    text-transform: uppercase;
+  }
+  
+  li span {
+    display: block;
+    font-size: 10vw;
+  }
+
+  img {
+   
+  }
+  </style>
+</head>
+<body>
+ <div class="container">
+        <h1>Coming <a style="text-decoration: none;" href="index2.html">Soon</a></h1>
+      </div>
+
+<div style="text-align: right; width: 100%; height: 100%; background-image: url('wedding-car-4837327-4077952.gif'); border: 1px solid black; background-position: center; background-repeat: no-repeat; background-size: contain;background-color:#fcfcff;"> 
+<!--   <img src="wedding-car-4837327-4077952.gif" style=" height: 100%; width: auto; ">  -->
+  
+  <div id="countdown">
+            <ul>
+              <li><span class="days"></span>days</li>
+              <li><span class="hours"></span>Hours</li>
+              <li><span class="minutes"></span>Minutes</li>
+              <li><span class="seconds"></span>Seconds</li>
+            </ul>
+          </div>
+  
+  
+</div>
+
+      <script src="app.js"></script>
+</body>
+  
+  <script>
+      // Get html elements
+    let day = document.querySelector('.days');
+    let hour = document.querySelector('.hours');
+    let minute = document.querySelector('.minutes');
+    let second = document.querySelector('.seconds');
+
+function setCountdown() {
+
+    // Set countdown date
+    let countdownDate = new Date('Feb 14, 2024 00:00:00').getTime();
+
+    // Update countdown every second
+    let updateCount = setInterval(function(){
+
+        // Get today's date and time
+        let todayDate = new Date().getTime();
+
+        // Get distance between now and countdown date
+        let distance = countdownDate - todayDate;
+
+        let days = Math.floor(distance / (1000 * 60 * 60 *24));
+
+        let hours = Math.floor(distance % (1000 * 60 * 60 *24) / (1000 * 60 *60));
+
+        let minutes = Math.floor(distance % (1000 * 60 * 60 ) / (1000 * 60));
+
+        let seconds = Math.floor(distance % (1000 * 60) / 1000);
+
+        // Display values in html elements
+        day.textContent = days;
+        hour.textContent = hours;
+        minute.textContent = minutes;
+        second.textContent = seconds;
+
+        // if countdown expires
+        if(distance < 0){
+            clearInterval(updateCount);
+            document.querySelector(".container").innerHTML = '<h1>EXPIRED</h1>'
+        }
+    }, 1000)
+}
+
+setCountdown()
+  </script>
+</html>
