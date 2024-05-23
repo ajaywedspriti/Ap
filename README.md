@@ -1,6 +1,6 @@
-# Template website undangan pernikahan sederhana
+ <!-- # Template website undangan pernikahan sederhana
 
-![Thumbnail](/assets/images/banner.png)
+ ![Thumbnail](/assets/images/banner.png) 
 
 ## Demo
 
@@ -25,3 +25,4 @@
 - Vanilla JS
 
 ### Terima kasih banyak teman-teman semua
+-->
