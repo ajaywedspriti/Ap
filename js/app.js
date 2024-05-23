@@ -374,7 +374,7 @@ const session = (() => {
 
     let body = document.querySelector('body');
 
-    const login = async () => {
+    /*const login = async () => {
         await request('POST', '/api/session')
             .body({
                 email: body.getAttribute('data-email'),
@@ -392,7 +392,7 @@ const session = (() => {
                 window.location.reload();
                 return;
             });
-    };
+    };*/
 
     const check = async () => {
         const token = localStorage.getItem('token');
@@ -401,12 +401,12 @@ const session = (() => {
             const jwt = JSON.parse(atob(token.split('.')[1]));
 
             if (jwt.exp < ((new Date()).getTime() / 1000)) {
-                await login();
+                // await login();
             } else {
                 await comment.ucapan();
             }
         } else {
-            await login();
+            // await login();
         }
     };
 
